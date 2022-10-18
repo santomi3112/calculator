@@ -32,13 +32,12 @@ main {
   background-color: rgba(126, 46, 132, .25);
   word-wrap: break-word;
   word-break: break-all;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
 }
 
-/* .container-buttons {
-
-  border: 1px solid black;
-} */
+.container-buttons {
+ max-width: 20rem;
+}
 
 .output-before {
   font-size: 1.2rem;
