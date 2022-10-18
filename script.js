@@ -43,11 +43,14 @@ function operate(operator, number, secondNumber) {
 }
 
 numberButtons.forEach((button) => {
-  button.addEventListener("click", () => appendNumber(button.textContent));
+  button.addEventListener("click", () => displayNumber(button.textContent));
 });
 
-function appendNumber(number) {
-  outputCurrentText.textContent += number
-}
+allClearButton.addEventListener(
+  "click",
+  () => (outputCurrentText.textContent = null)
+);
 
-function display(number) {}
+function displayNumber(number) {
+  outputCurrentText.textContent += number;
+}
