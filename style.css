@@ -1,78 +1,40 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
   font-family: 'Rubik', sans-serif;
-  
+  font-weight: 500px;
 }
 
 main {
-  height: 100vh;
+  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  
-  /* min-width: 100%;
-  max-width: 100%; */
-  /* flex-wrap: wrap; */
+  min-height: 100vh;
+  flex-direction: column;
+  /* margin: auto; */
 }
 
-.container {
-  border: 4px solid black;
-  height: 75vh;
-  width: 500px;
+button {
+  width: 5rem;
+  height: 5rem;
 }
 
-.display {
-  border: 2px solid red;
-  height: 20vh;
-  margin: 20px;
+.span-two {
+  flex-grow: 2;
 }
 
-.second-display {
-  border: 2px solid green;
-  height: 6vh;
-  margin: 10px;
+.container-buttons {
+  border: 1px solid black;
 }
 
-.main-display {
-  border: 2px solid green;
-  height: 10vh;
-  margin: 10px;
-}
-
-.buttons {
-  border: 2px solid red;
-  height: 10vh;
-  margin: 20px;
+.row-span {
   display: flex;
-  justify-content: space-evenly;
-}
 
-.button {
-  border: 2px solid green;
-  margin: 10px;
-  width: 20vh;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.operands {
-  border: 2px solid red;
-  margin: 20px;
-  height: 7vh;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.operand {
-  border: 2px solid green;
-  margin: 8px;
-  width: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
 }
