@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  background-image: linear-gradient(to right, #dab2fa, #B2FADA);
+  background-image: linear-gradient(to right, #dab2fa, rgb(178, 250, 218));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +19,11 @@ main {
 }
 
 .display {
+  color: white;
   max-width: 400px;
   font-family: 'Rubik', sans-serif;
   font-size: 2rem;
-  height: 8rem;
+  min-height: 8rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -30,6 +31,7 @@ main {
   padding: 10px;
   background-color: rgba(126, 46, 132, .25);
   word-wrap: break-word;
+  word-break: break-all;
   /* flex-wrap: wrap; */
 }
 
@@ -39,7 +41,8 @@ main {
 } */
 
 .output-before {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: rgba(255,255,255, .6);
 }
 
 
@@ -55,7 +58,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(126, 46, 132, .25);
+  background-color: rgba(178, 250, 218, .25);
   transition: ease-in-out;
 }
 
