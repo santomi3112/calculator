@@ -42,7 +42,7 @@ main {
 
 .output-before {
   font-size: 1.2rem;
-  color: rgba(255,255,255, .6);
+  color: rgba(255, 255, 255, .6);
 }
 
 
@@ -69,4 +69,17 @@ button:hover {
 
 .row-span {
   display: flex;
+}
+
+[data-all-clear],
+[data-clear] {
+  color: rgb(229, 64, 64);
+}
+
+[data-operation] {
+  color: #9D44B5;
+}
+
+[data-equals] {
+  color: #048A81;
 }
