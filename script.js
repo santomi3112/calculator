@@ -56,8 +56,8 @@ function operate(operator, number, secondNumber) {
 
 // equals button
 equalsButton.addEventListener("click", (button) => {
-  operate(currentOperator, number, secondNumber)
-  updateDisplay()
+  secondNumber = outputCurrentText.textContent;
+  outputCurrentText.textContent = operate(currentOperator, number, secondNumber)
 });
 
 // number buttons
