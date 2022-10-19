@@ -1,6 +1,6 @@
-let number = ''
-let secondNumber = ''
-let currentOperator = undefined
+let number = "";
+let secondNumber = "";
+let currentOperator = undefined;
 
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
@@ -32,9 +32,9 @@ function divide(number, secondNumber) {
 
 // implementing operation
 function operate(operator, number, secondNumber) {
-  number = parseFloat(outputBeforeText.textContent)
-  secondNumber = parseFloat(outputCurrentText.textContent)
-  if (isNaN(number) || isNaN(secondNumber)) return
+  number = parseFloat(outputBeforeText.textContent);
+  secondNumber = parseFloat(outputCurrentText.textContent);
+  if (isNaN(number) || isNaN(secondNumber)) return;
   switch (operator) {
     case "+":
       return add(number, secondNumber);
@@ -57,7 +57,11 @@ function operate(operator, number, secondNumber) {
 // equals button
 equalsButton.addEventListener("click", (button) => {
   secondNumber = outputCurrentText.textContent;
-  outputCurrentText.textContent = operate(currentOperator, number, secondNumber)
+  outputCurrentText.textContent = operate(
+    currentOperator,
+    number,
+    secondNumber
+  );
 });
 
 // number buttons
@@ -77,7 +81,6 @@ operationButtons.forEach((button) => {
   );
 });
 
-
 // AC button
 allClearButton.addEventListener("click", () => allClearNumber());
 
@@ -91,16 +94,16 @@ function chooseOperation(operator) {
   //   operate()
   // }
   number = outputCurrentText.textContent;
-  currentOperator = operator
-  outputBeforeText.textContent = `${number} ${currentOperator}`
-  outputCurrentText.textContent = ''
+  currentOperator = operator;
+  outputBeforeText.textContent = `${number} ${currentOperator}`;
+  outputCurrentText.textContent = "";
 }
 
 // display numbers func
 function displayNumber(number) {
-  if (outputCurrentText.textContent === '0') outputCurrentText.textContent = ''
+  if (outputCurrentText.textContent === "0") outputCurrentText.textContent = "";
   if (number === "." && outputCurrentText.textContent.includes(".")) return;
-  outputCurrentText.textContent += number
+  outputCurrentText.textContent += number;
 }
 
 // C button func
