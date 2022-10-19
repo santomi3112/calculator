@@ -34,7 +34,7 @@ function operate(operator, number, secondNumber) {
       return multiply(number, secondNumber);
       break;
     case "÷":
-      if (b === 0) return "lmao";
+      if (secondNumber === 0) return "lmao";
       return divide(number, secondNumber);
       break;
     default:
@@ -46,11 +46,23 @@ numberButtons.forEach((button) => {
   button.addEventListener("click", () => displayNumber(button.textContent));
 });
 
+operationButtons.forEach((button) => {
+  button.addEventListener("click", () => setOperation(button.textContent));
+});
+
+function setOperation(operator) {}
+
 allClearButton.addEventListener(
   "click",
   () => (outputCurrentText.textContent = null)
 );
 
+clearButton.addEventListener('click', () => clearNumber())
+
 function displayNumber(number) {
   outputCurrentText.textContent += number;
+}
+
+function clearNumber() {
+  outputCurrentText.textContent = outputCurrentText.textContent.toString().slice(0, -1)
 }
