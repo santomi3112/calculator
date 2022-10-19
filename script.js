@@ -1,10 +1,14 @@
+let number = ''
+let secondNumber = ''
+let operator = undefined
+
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButton = document.querySelector("[data-equals]");
 const clearButton = document.querySelector("[data-clear]");
 const allClearButton = document.querySelector("[data-all-clear]");
-const outputCurrentText = document.querySelector("[data-output-current]");
 const outputBeforeText = document.querySelector("[data-output-before]");
+const outputCurrentText = document.querySelector("[data-output-current]");
 
 //
 // operation function
@@ -28,6 +32,9 @@ function divide(number, secondNumber) {
 
 // implementing operation
 function operate(operator, number, secondNumber) {
+  number = parseFloat(outputBeforeText.textContent)
+  secondNumber = parseFloat(outputCurrentText.textContent)
+  if (isNaN(number) || isNaN(secondNumber)) return
   switch (operator) {
     case "+":
       return add(number, secondNumber);
@@ -47,33 +54,52 @@ function operate(operator, number, secondNumber) {
   }
 }
 
+// equals button
+equalsButton.addEventListener("click", (button) => {
+  operate(operator, number, secondNumber)
+  updateDisplay()
+});
+
 // number buttons
 numberButtons.forEach((button) => {
-  button.addEventListener("click", () => displayNumber(button.textContent));
+  button.addEventListener(
+    "click",
+    () => displayNumber(button.textContent),
+    updateDisplay()
+  );
 });
 
-// operation buttons
 operationButtons.forEach((button) => {
-  button.addEventListener("click", () => displayOperation(button.textContent));
+  button.addEventListener(
+    "click",
+    () => chooseOperation(button.textContent),
+    updateDisplay()
+  );
 });
+
 
 // AC button
-allClearButton.addEventListener(
-  "click",
-  () => (outputCurrentText.textContent = null)
-);
+allClearButton.addEventListener("click", () => allClearNumber());
 
 // C button
 clearButton.addEventListener("click", () => clearNumber());
 
-// display operations func
-function displayOperation(operator) {
-  outputCurrentText.textContent += operator;
+// choose operator func
+function chooseOperation(operator) {
+  if (outputCurrentText.textContent === '') return
+  if (outputBeforeText.textContent !== '') {
+    operate()
+  }
+  const operationButtons = operator
+  outputBeforeText.textContent = outputCurrentText.textContent;
+  outputCurrentText.textContent = ''
 }
 
 // display numbers func
 function displayNumber(number) {
-  outputCurrentText.textContent += number;
+  if (outputCurrentText.textContent === '0') outputCurrentText.textContent = ''
+  if (number === "." && outputCurrentText.textContent.includes(".")) return;
+  outputCurrentText.textContent += number
 }
 
 // C button func
@@ -81,4 +107,16 @@ function clearNumber() {
   outputCurrentText.textContent = outputCurrentText.textContent
     .toString()
     .slice(0, -1);
+}
+
+// AC function
+function allClearNumber() {
+  outputCurrentText.textContent = "0";
+  outputBeforeText.textContent = "";
+  operator = undefined;
+}
+
+function updateDisplay() {
+  outputCurrentText.textContent = number;
+  outputBeforeText.textContent = secondNumber;
 }
