@@ -32,9 +32,9 @@ function divide(number, secondNumber) {
 
 // implementing operation
 function operate(operator, number, secondNumber) {
-  // number = parseFloat(outputBeforeText.textContent)
-  // secondNumber = parseFloat(outputCurrentText.textContent)
-  // if (isNaN(number) || isNaN(secondNumber)) return
+  number = parseFloat(outputBeforeText.textContent)
+  secondNumber = parseFloat(outputCurrentText.textContent)
+  if (isNaN(number) || isNaN(secondNumber)) return
   switch (operator) {
     case "+":
       return add(number, secondNumber);
