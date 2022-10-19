@@ -6,6 +6,8 @@ const allClearButton = document.querySelector("[data-all-clear]");
 const outputCurrentText = document.querySelector("[data-output-current]");
 const outputBeforeText = document.querySelector("[data-output-before]");
 
+//
+// operation function
 function add(number, secondNumber) {
   return number + secondNumber;
 }
@@ -21,7 +23,10 @@ function multiply(number, secondNumber) {
 function divide(number, secondNumber) {
   return number / secondNumber;
 }
+// end of operation function
+//
 
+// implementing operation
 function operate(operator, number, secondNumber) {
   switch (operator) {
     case "+":
@@ -42,31 +47,36 @@ function operate(operator, number, secondNumber) {
   }
 }
 
+// number buttons
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => displayNumber(button.textContent));
 });
 
+// operation buttons
 operationButtons.forEach((button) => {
-  button.addEventListener("click", () => setOperation(button.textContent));
+  button.addEventListener("click", () => displayOperation(button.textContent));
 });
 
-function setOperation(operator) {}
-
+// AC button
 allClearButton.addEventListener(
   "click",
   () => (outputCurrentText.textContent = null)
 );
 
+// C button
 clearButton.addEventListener("click", () => clearNumber());
 
+// display operations func
+function displayOperation(operator) {
+  outputCurrentText.textContent += operator;
+}
+
+// display numbers func
 function displayNumber(number) {
   outputCurrentText.textContent += number;
 }
 
-function allClear() {
-  outputcurr
-}
-
+// C button func
 function clearNumber() {
   outputCurrentText.textContent = outputCurrentText.textContent
     .toString()
