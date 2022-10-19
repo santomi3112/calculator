@@ -57,12 +57,18 @@ allClearButton.addEventListener(
   () => (outputCurrentText.textContent = null)
 );
 
-clearButton.addEventListener('click', () => clearNumber())
+clearButton.addEventListener("click", () => clearNumber());
 
 function displayNumber(number) {
   outputCurrentText.textContent += number;
 }
 
+function allClear() {
+  outputcurr
+}
+
 function clearNumber() {
-  outputCurrentText.textContent = outputCurrentText.textContent.toString().slice(0, -1)
+  outputCurrentText.textContent = outputCurrentText.textContent
+    .toString()
+    .slice(0, -1);
 }
