@@ -1,6 +1,6 @@
 let number = ''
 let secondNumber = ''
-let operator = undefined
+let currentOperator = undefined
 
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
@@ -32,9 +32,9 @@ function divide(number, secondNumber) {
 
 // implementing operation
 function operate(operator, number, secondNumber) {
-  number = parseFloat(outputBeforeText.textContent)
-  secondNumber = parseFloat(outputCurrentText.textContent)
-  if (isNaN(number) || isNaN(secondNumber)) return
+  // number = parseFloat(outputBeforeText.textContent)
+  // secondNumber = parseFloat(outputCurrentText.textContent)
+  // if (isNaN(number) || isNaN(secondNumber)) return
   switch (operator) {
     case "+":
       return add(number, secondNumber);
@@ -56,7 +56,7 @@ function operate(operator, number, secondNumber) {
 
 // equals button
 equalsButton.addEventListener("click", (button) => {
-  operate(operator, number, secondNumber)
+  operate(currentOperator, number, secondNumber)
   updateDisplay()
 });
 
@@ -86,12 +86,13 @@ clearButton.addEventListener("click", () => clearNumber());
 
 // choose operator func
 function chooseOperation(operator) {
-  if (outputCurrentText.textContent === '') return
-  if (outputBeforeText.textContent !== '') {
-    operate()
-  }
-  const operationButtons = operator
-  outputBeforeText.textContent = outputCurrentText.textContent;
+  // if (outputCurrentText.textContent === '') return
+  // if (outputBeforeText.textContent !== '') {
+  //   operate()
+  // }
+  number = outputCurrentText.textContent;
+  currentOperator = operator
+  outputBeforeText.textContent = `${number} ${currentOperator}`
   outputCurrentText.textContent = ''
 }
 
